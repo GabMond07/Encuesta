@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Semántica</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+<div id="redSemantica"></div>
+
+<script>
+  // Datos para la red semántica (puedes personalizar esto)
+  const data = {
+    nodes: [
+      { id: "Minería de Datos" },
+      { id: "Concepto" },
+      { id: "Aplicaciones" },
+      { id: "Áreas de Investigación" },
+      { id: "Algoritmos" },
+      { id: "Trabajo Futuro" },
+      { id: "Autores y Aportaciones" },
+      { id: "Desafíos y Tendencias" },
+      { id: "Conclusiones" },
+    ],
+    links: [
+      { source: "Minería de Datos", target: "Concepto" },
+      { source: "Minería de Datos", target: "Aplicaciones" },
+      { source: "Minería de Datos", target: "Áreas de Investigación" },
+      { source: "Minería de Datos", target: "Algoritmos" },
+      { source: "Minería de Datos", target: "Trabajo Futuro" },
+      { source: "Minería de Datos", target: "Autores y Aportaciones" },
+      { source: "Minería de Datos", target: "Desafíos y Tendencias" },
+      { source: "Minería de Datos", target: "Conclusiones" },
+    ],
+  };
+
+  // Configuración del diseño
+  const width = 1000;
+  const height = 900;
+
+  // Crear el contenedor SVG
+  const svg = d3.select("#redSemantica")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  // Crear la simulación de fuerza
+  const simulation = d3.forceSimulation(data.nodes)
+    .force("link", d3.forceLink(data.links).id(d => d.id))
+    .force("charge", d3.forceManyBody().strength(-100))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  // Dibujar enlaces
+  const links = svg.selectAll("line")
+    .data(data.links)
+    .enter()
+    .append("line");
+
+  // Dibujar nodos
+  const nodes = svg.selectAll("circle")
+    .data(data.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", 10)
+    .attr("fill", "blue");
+
+  // Etiquetas de nodos
+  const labels = svg.selectAll("text")
+    .data(data.nodes)
+    .enter()
+    .append("text")
+    .text(d => d.id)
+    .attr("font-size", "12px")
+    .attr("dx", 15)
+    .attr("dy", 4);
+
+  // Actualizar la posición de los elementos en cada iteración de la simulación
+  simulation.on("tick", () => {
+    links
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    nodes
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y);
+
+    labels
+      .attr("x", d => d.x)
+      .attr("y", d => d.y);
+  });
+</script>
+
+
+</body>
+</html>
