@@ -93,14 +93,16 @@ body {
     margin-top: 25%;
 }
 
-.logo{
-    display: grid;
+.img{
+    position: fixed;
+    display: flex;
+    top: 2%;
+    left: 10%;
 }
 
-#LogoBuap{
-    position: relative;
-    height: 20vh; 
-    top: 2rem;
+.logo{
+    height: 12vh;
+    margin-top: 2%;
 }
 
 .insert{
@@ -114,12 +116,7 @@ body {
     margin-top: 2%;
 }
 
-.btn-primary{
-    margin-top: 3%;
-    
-}
-
-.form_client{
+.form_admin{
     display: flex;
     background-color: white;
     height: 95vh;
@@ -128,6 +125,32 @@ body {
     opacity: 0.86;  
 }
 
+.titulo{
+    margin-top: 2%;
+    color:rgb(33, 92, 113);
+}
+
+hr{
+    margin: 5px auto;
+}
+
+.icons{
+    margin-top: 1.3%;
+    position: fixed;
+    display: flex;
+    top: 2%;
+    right: 10%;
+    gap: 35%;
+    text-decoration: none;
+}
+
+.link{
+    text-decoration: none;
+    font-size: 2.3rem;
+    transition: color .2s, transform .2s;
+    color:rgb(33, 92, 113);
+    display: flex;
+}
 
 
 
@@ -146,9 +169,33 @@ body {
 
 
 
+/*Forms for users*/
+.users_form{
+    display: flex;
+    background-color: white;
+    height: 95vh;
+    width: 90%;
+    margin: 0;
+    opacity: 0.86;  
+    justify-content: center;
+}
 
+.search{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    margin-top: 7%;
+    width: 30%;
+    height: 5%;
+}
 
+.table_user{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    margin-top: 10%;
 
+}
 
 
 

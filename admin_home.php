@@ -26,12 +26,19 @@ if (!isset($_SESSION['username'])) {
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="Style.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     </head>
 
     <body>
-    <form action="post.php" method="post" class="form_client">
+    <form action="post.php" method="post" class="form_admin">
         <div class="container">
-
+            <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
+            <div class="titulo"><h1>Informe de resultados</h1><hr></div>
+            <div class="icons">
+                <a href="#" class="link"><i class="ri-user-add-line"></a></i>
+                <a href="#" class="link"><i class="ri-add-circle-fill"></i></a>    
+            </div>
         </div>
     </form>
     
