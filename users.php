@@ -2,14 +2,11 @@
 <html lang="en">
     <head>
         <title>Users</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-
-        <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -32,54 +29,61 @@
             </div>
         </div>
         <div class="search">
-                <input type="text" class="form-control" name="inputID" Required id="inputID" aria-describedby="helpId" placeholder="buscar usuario.">
+                <input type="text" class="form-control" name="inputID" Required id="inputID" aria-describedby="helpId" placeholder="Buscar usuario.">
             </div>
+            <?php
+            include 'Backend/API/BD/DB.php';
+            $sql = "SELECT * , departamentos.NombreDepartamento
+            FROM usuarios
+            INNER JOIN usuariodepartamento ON usuarios.UsuarioID = usuariodepartamento.UsuarioID
+            INNER JOIN departamentos ON usuariodepartamento.DepartamentoID = departamentos.DepartamentoID;";
 
-        <div class="table_user">
-            <div
-                class="table-responsive"
-            >
-                <table
-                    class="table table-striped table-hover table-borderless table-primary align-middle"
-                >
-                    <thead class="table-light">
-                        <caption>
-                            Table Name
-                        </caption>
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                echo"
+                <div class='table_user'>
+                <div class='table-responsive'>
+                <table class='table table-striped table-hover table-borderless table-primary align-middle' >
+                <thead class='table-light'>
+                    <caption>
+                        Lista de usuarios
+                    </caption>
                         <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
+                            <th>Id</th>
+                            <th>Usuario</th>
+                            <th>Contrasena</th>
+                            <th>Tipo</th>
+                            <th>Departamento</th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tbody class="table-group-divider">
-                        <tr
-                            class="table-primary"
-                        >
-                            <td scope="row">Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
+                    ";
+                    while ($row = $result->fetch_assoc()) {
+                    echo"
+                        <tr class='table-primary'>
+                            <td scope='row'>". $row['UsuarioID'] . "</td>
+                            <td>".$row['Username']."</td>
+                            <td>".$row['Password']."</td>
+                            <td>".$row['TipoUsuario']."</td>
+                            <td>".$row['NombreDepartamento']."</td>
+                            <td>
+                            <button type='button' class='btn btn-danger' onclick='confirmarEliminacion({$row['UsuarioID']})'>
+                            <i class='ri-delete-bin-5-line'></i>
+                            </button>
+                            </td>
                         </tr>
-                        <tr
-                            class="table-primary"
-                        >
-                            <td scope="row">Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        
-                    </tfoot>
-                </table>
-            </div>
-            
+                    ";
+                }   
+                echo "</table>";
+            } else {
+                echo "No hay usuarios en la base de datos.";
+            }   
+            ?>
         </div>
     </form>
-        <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            integrity="sha384-I7E8VVD/ismYT F4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
             crossorigin="anonymous"
         ></script>
 
@@ -88,5 +92,27 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script>
+            function confirmarEliminacion(id) {
+                swal({
+                    title: "¿Realmente quiere eliminar este usuario?",
+                    text: " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Eliminando correctamente", {
+                        icon: "success",
+                    });
+                } else {
+                }
+                });
+            }
+        </script>
     </body>
 </html>

@@ -6,19 +6,15 @@ if (!isset($_SESSION['username'])) {
 }
 */
 ?>
-
 <!doctype html>
 <html lang="en">
     <head>
         <title>Dashboard</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-
-        <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -27,23 +23,18 @@ if (!isset($_SESSION['username'])) {
         />
         <link rel="stylesheet" href="Style.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
     </head>
-
     <body>
     <form action="post.php" method="post" class="form_admin">
         <div class="container">
             <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
             <div class="titulo"><h1>Informe de resultados</h1><hr></div>
             <div class="icons">
-                <a href="#" class="link"><i class="ri-user-add-line"></a></i>
-                <a href="#" class="link"><i class="ri-add-circle-fill"></i></a>    
+                <a href="users.php" class="link"><i class="ri-user-settings-fill"></a></i>
+                <a href="#" class="link"><i class="ri-add-circle-fill"></i></a>
             </div>
         </div>
     </form>
-    
-
-        <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
