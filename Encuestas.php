@@ -1,15 +1,7 @@
-<?php
-/*
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-*/
-?>
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Dashboard</title>
+        <title>Encuestas</title>
         <meta charset="utf-8" />
         <meta
             name="viewport"
@@ -21,20 +13,20 @@ if (!isset($_SESSION['username'])) {
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <link rel="stylesheet" href="Style.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="Style.css">
     </head>
+
     <body>
-    <form action="post.php" method="post" class="form_admin">
+        <form action="Post" class="encuestas_form">
         <div class="container">
-            <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
-            <div class="titulo"><h1>Informe de resultados</h1><hr></div>
+        <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
+            <div class="titulo"><h1>Encuestas</h1><hr></div>
             <div class="icons">
-                <a href="users.php" class="link"><i class="ri-user-settings-fill"></a></i>
-                <a href="Encuestas.php" class="link"><i class="ri-list-check-2"></a></i>
+                <a href="#" class="link"><i class="ri-file-add-line"></i></a>    
             </div>
         </div>
-    </form>
+        </form>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
