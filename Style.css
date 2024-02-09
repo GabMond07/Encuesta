@@ -281,7 +281,7 @@ hr{
     
   }
   .list-group-item{
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     cursor: pointer;
     transition: background-color 0.3s;  
 }

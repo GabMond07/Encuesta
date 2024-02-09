@@ -23,35 +23,34 @@
         <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
             <div class="titulo"><h1>Clima laboral</h1><hr></div>
             <div class="icons">
-                <a href="#" class="link"><i class="ri-file-add-line"></i></a>    
             </div>
         </div>
     </div>
 
     <form action="Post" class="encuestas_form_client">
-        <div class="Preguntas">
-            <div class="contador-pregunta" id="contadorPregunta">Pregunta 1 de 2</div>
+        <div class="Preguntas">    
+        <div class="contador-pregunta" id="contadorPregunta">Pregunta 1 de 2</div>
             <a href="#" class="btn btn-back" id="atras" style="display: none;"><i class="ri-arrow-left-line"></i></a>
             <div class="pregunta" id="pregunta1">
-            <hr>
+
             <h3>Pregunta 1</h3>
             <ul class="list-group">
                 <li class="list-group-item" onclick="seleccionarRespuesta(1)">
                 <div class="input-group">
                     <input type="radio" id="respuesta1" name="respuesta" value="Respuesta 1">
-                    <label for="respuesta1">Respuesta 1</label>
+                    <label for="respuesta1"> Respuesta 1</label>
                 </div>
                 </li>
                 <li class="list-group-item" onclick="seleccionarRespuesta(2)">
                 <div class="input-group">
                     <input type="radio" id="respuesta2" name="respuesta" value="Respuesta 2">
-                    <label for="respuesta2">Respuesta 2</label>
+                    <label for="respuesta2"> Respuesta 2</label>
                 </div>
                 </li>
                 <li class="list-group-item" onclick="seleccionarRespuesta(3)">
                 <div class="input-group">
                     <input type="radio" id="respuesta3" name="respuesta" value="Respuesta 3">
-                    <label for="respuesta3">Respuesta 3</label>
+                    <label for="respuesta3"> Respuesta 3</label>
                 </div>
                 </li>
             </ul>
@@ -73,6 +72,11 @@
                     <input type="checkbox" id="respuesta6">
                     <label for="respuesta6">Respuesta 6</label>
                 </li>
+                <li class="list-group-item">
+                    <input type="checkbox" id="respuesta6">
+                    <label for="respuesta6">Respuesta 7</label>
+                </li>
+
                 </ul>
                 <button class="btn btn-primary mt-3" id="siguiente2">Siguiente</button>
             </div>
@@ -102,10 +106,16 @@
     var respuestaSeleccionada = radioSeleccionado.closest('.list-group-item');
     respuestaSeleccionada.classList.add('active');
   }
+
+    
+    $('.descipcion').first().show();
+
     // Oculta el resultado y muestra la primera pregunta
     $('#resultado').hide();
-    $('.pregunta').first().show();
 
+    $('#siguiente').click(function() {
+      mostrarSiguientePregunta($('#descripcion'));
+    });
     // Maneja el click en el botón Siguiente para la primera pregunta
     $('#siguiente1').click(function() {
       mostrarSiguientePregunta($('#pregunta1'));

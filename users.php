@@ -55,6 +55,7 @@
                             <th>Tipo</th>
                             <th>Departamento</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     ";
@@ -69,6 +70,11 @@
                             <td>
                             <button type='button' class='btn btn-danger' onclick='confirmarEliminacion({$row['UsuarioID']})'>
                             <i class='ri-delete-bin-5-line'></i>
+                            </button>
+                            </td>
+                            <td>
+                            <button type='button' class='btn btn-blue' onclick='confirmarEliminacion({$row['UsuarioID']})'>
+                            <i class='ri-edit-2-fill'></i>
                             </button>
                             </td>
                         </tr>
