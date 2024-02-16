@@ -24,12 +24,11 @@
         <div class="img"><img src="img/Buap.png" class="logo" alt=""></div>
             <div class="titulo"><h1>Usuarios</h1><hr></div>
             <div class="icons">
-                <a href="#" class="link"><i class="ri-user-add-line"></a></i>
-                <a href="#" class="link"><i class="ri-add-circle-fill"></i></a>    
+                <a href="#" class="link" onclick="showForm()"><i class="ri-user-add-line"></a></i>
             </div>
         </div>
         <div class="search">
-                <input type="text" class="form-control" name="inputID" Required id="inputID" aria-describedby="helpId" placeholder="Buscar usuario.">
+                <input type="text" class="form-control" name="inputID" aria-describedby="helpId" placeholder="Buscar usuario.">
             </div>
             <?php
             include 'Backend/API/BD/DB.php';
@@ -73,7 +72,7 @@
                             </button>
                             </td>
                             <td>
-                            <button type='button' class='btn btn-blue' onclick='confirmarEliminacion({$row['UsuarioID']})'>
+                            <button type='button' class='btn btn-blue' onclick='showForm()'>
                             <i class='ri-edit-2-fill'></i>
                             </button>
                             </td>
@@ -85,6 +84,31 @@
                 echo "No hay usuarios en la base de datos.";
             }   
             ?>
+
+        <div id="overlay" onclick="hideForm()">
+                <div id="form-container">
+                    <h2>Formulario de Usuario</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="username" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="type" class="form-label">Tipo</label>
+                            <input type="text" class="form-control" id="type" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Departamento</label>
+                            <input type="text" class="form-control" id="department" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </form>
         <script
@@ -122,5 +146,13 @@
                 });
             }
         </script>
+            <script>
+        function showForm() {
+            document.getElementById("overlay").style.display = "flex"; // Mostrar el overlay
+        }
+
+
+
+    </script>
     </body>
 </html>

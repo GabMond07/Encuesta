@@ -34,6 +34,25 @@ if (!isset($_SESSION['username'])) {
                 <a href="Encuestas.php" class="link"><i class="ri-list-check-2"></a></i>
             </div>
         </div>
+        <div class="estadisticas">
+            <dl class="row">
+                <dt class="col-sm-3">Encuestas</dt>
+                <dd class="col-sm-9"></dd>
+                <dt class="col-sm-3">% Avance</dt>
+                <dd class="col-sm-9">Departamentos</dd>
+                <dt class="col-sm-3 text-truncate">
+                    Departamentos
+                </dt>
+                <dd class="col-sm-9">Term</dd>
+                <dt class="col-sm-3">Nesting</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nested title</dt>
+                        <dd class="col-sm-8">Nested definition</dd>
+                    </dl>
+                </dd>
+            </dl>
+        </div>
     </form>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

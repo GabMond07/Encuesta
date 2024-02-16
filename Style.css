@@ -153,7 +153,14 @@ hr{
     display: flex;
 }
 
-
+.estadisticas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 14%;
+    right: 20%;
+}
 
 
 
@@ -199,6 +206,29 @@ hr{
 }
 
 
+/*Añadir usuarios*/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    display: none; /* Ocultar inicialmente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté en la parte superior */
+}
+
+#form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    max-width: 400px;
+    width: 100%;
+}
+
 
 
 
@@ -215,6 +245,60 @@ hr{
 
 }
 
+.cards{
+    position: fixed;
+    margin-top: 0;
+    display: block;
+    margin-top: 10%;
+    height: 30vh;
+    width: 80%;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-body{
+    transition: color .3s, transform .2s;
+}
+
+.card:hover .card-body{
+    transform: scale(1.05);
+}
+
+.card-body .card-title{
+    display: flex;
+    justify-content: center;
+}
+.card-body .card-text{
+    display: flex;
+    justify-content: center;
+}
+.card-body p{
+    display: flex;
+    justify-content: center;
+}
+.card-body .grafica{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+
+/*Tabla encuestas*/
+
+
+.table-encuesta{
+    margin-top: 3%;
+}
+
+/*Añadir encuesta*/
 
 
 
@@ -302,22 +386,24 @@ hr{
   }
  
 
-
-
-
-
-
-
-
 @media screen and (max-width: 820px){
 
     .container{
+        width: 95%;
+    }
+    .form{
         width: 80%;
     }
 
     .insert{
         margin-top: 20%;
         width: 450px;
+    }
+    .table_user{
+        margin-top: 20%;
+    }
+    .search{
+        margin-top: 10%;
     }
 }
 
